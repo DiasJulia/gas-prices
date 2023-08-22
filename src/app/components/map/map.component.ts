@@ -16,9 +16,9 @@ export class MapComponent {
 
     let path = d3.geoPath().projection(projection);
 
-    d3.json('assets/br-states.json').then((data: any) => {
+    d3.json('assets/al-state.json').then((data: any) => {
       console.log(data);
-      var states = topojson.feature(data, data.objects.states);
+      var states = topojson.feature(data, data.objects.state);
 
       const g = svg.append('g').attr('fill', '#000');
 

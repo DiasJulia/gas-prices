@@ -26,13 +26,16 @@ export class MapComponent {
 
     this.states.forEach((state: any) => {
       d3.json(`assets/states${state.topojson}`).then((data: any) => {
-        console.log(data);
         var states = topojson.feature(data, data.objects.state);
 
-        const g = svg.append('g').attr('fill', '#000');
+        const g = svg
+          .append('a')
+          .attr('xlink:title', state.name)
+          .attr('xlink:href', `https://www.google.com/search?q=${state.name}`)
+          .append('g')
+          .attr('fill', '#000');
 
         g.append('path').datum(states).attr('d', path).attr('class', 'state');
-        console.log(states);
       });
     });
   }
